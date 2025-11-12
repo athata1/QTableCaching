@@ -36,8 +36,8 @@ num_actions = env.action_space.n
 # Initialize Q-table
 #q_table = LRUQTable(capacity=num_states * num_actions * 0.7, default_value=0.0)
 #q_table = DictQTable(default_value=0.0)
-q_table = ArrayQTable(num_states, num_actions, default_value=0.0)
-#q_table = LFUQTable(hot_capacity=int(num_states * num_actions * 0.7), default_value=0.0)
+#q_table = ArrayQTable(num_states, num_actions, default_value=0.0)
+q_table = LFUQTable(hot_capacity=int(num_states * num_actions * 0.7), default_value=0.0, move_every=20000)
 #q_table = TimestampQTable(default_value=0.0, hot_duration=10.0, move_every=10000)
 
 goal_pos = env.goal_pos  # DenseGridWorld has a single goal
